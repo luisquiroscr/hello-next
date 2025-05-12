@@ -5,51 +5,44 @@ import { useState } from "react";
 import Navigation from "./components/Navigation";
 
 
-const opcionesDeMenu = [
-  { 
-    id: 1, texto: 'Quienes somos', link: 'about', isSelected: false
-  }, { 
-    id: 2, texto: 'Experiencia', link: 'experience', isSelected: true
-  }, { 
-    id: 3, texto: 'Proyectos', link: 'proyects', isSelected: false
-  },  { 
-    id: 4, texto: 'Contacto', link: 'contact', isSelected: false
-  },
-];
-
-const menu = function () {
+export function Menu() {
   const [elementoActivo, setElementoActivo] = useState(1);
 
+  const opcionesDeMenu = [
+    { id: 1, texto: 'Quienes somos', link: 'about' },
+    { id: 2, texto: 'Experiencia', link: 'experience' },
+    { id: 3, texto: 'Proyectos', link: 'proyects' },
+    { id: 4, texto: 'Contacto', link: 'contact' },
+  ];
 
   return (
-    <nav>
+    <nav className="flex gap-4 flex-wrap justify-center">
       {opcionesDeMenu.map((opcion) => (
         <a
           key={opcion.id}
           href={opcion.link}
-          className="p-4 text-sm font-medium text-gray-700 rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-          onClick={() => {
-            setElementoActivo(opcion.id);
-          }}
-          >
-            {elementoActivo === opcion.id &&
-             (<span>✔</span>)}
-            {opcion.texto}
-          </a>
-
+          onClick={() => setElementoActivo(opcion.id)}
+          className={`flex items-center gap-1 p-3 rounded-lg text-sm font-medium transition-colors duration-300 
+            ${elementoActivo === opcion.id
+              ? "bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-white"
+              : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"}
+          `}
+        >
+          {elementoActivo === opcion.id && <span>✔</span>}
+          {opcion.texto}
+        </a>
       ))}
-
-    
     </nav>
   );
-};
+}
+
 
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Navigation></Navigation>
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        {menu()}
+        {Menu()}
 
         <Image
           className="dark:invert"
