@@ -2,12 +2,12 @@
 import { useState } from "react";
 
 export default function Menu() {
-  const [elementoActivo, setElementoActivo] = useState(1);
+  const [elementoActivo, setElementoActivo] = useState();
 
   const opcionesDeMenu = [
     { id: 1, texto: "Quienes somos", link: "about" },
     { id: 2, texto: "Experiencia", link: "experience" },
-    { id: 3, texto: "Proyectos", link: "proyects" },
+    { id: 3, texto: "Proyectos", link: "projects" },
     { id: 4, texto: "Contacto", link: "contact" },
   ];
 
