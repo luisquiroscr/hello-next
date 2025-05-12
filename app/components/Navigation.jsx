@@ -7,8 +7,8 @@ export default function Navigation({name}) {
         <div className="max-w-lg mx-auto p-8">
             <h1 className="text-4xl font-extrabold mb-4">About</h1>
             <p className="text-sm text-gray-700 dark:text-gray-200">
-                hello {name}
+                Hello {name}
             </p>
         </div>
-    ) 
+    ); 
 }
