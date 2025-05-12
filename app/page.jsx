@@ -1,9 +1,50 @@
 import Image from "next/image";
 
+
 export default function Home() {
+
+ const opcionesMenu = [ { 
+    id: 1, texto: 'Code', link: '/', isSelected: false
+  }, { 
+    id: 2, texto: 'Issues', link: '/issues', isSelected: true
+  }, { 
+    id: 3, texto: 'Pull-requests', link: '/pulls', isSelected: false
+  }];
+
+    const [elementoActivo, setElementoActivo] = useState('hola');
+  
+    const actualizarSeleccion = (id = null) => {
+      console.log('click en el elemento', id);
+  
+      setElementoActivo(id);
+
+    };
+
+    const menu = opcionesMenu.map(elemento => {
+    return (
+      <a 
+        href={`#${elemento.link}`}
+        key={elemento.id} 
+        style={{ margin: '10px' }} 
+        onClick={actualizarSeleccion.bind(this, elemento.id)}>
+        { elemento.texto }
+        { elemento.id === elementoActivo && 
+          (<b>*</b>) }
+      </a>
+    );
+  });
+
+
   return (
+
+    
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <ul>
+        <li className= "botonesNav"> {menu}</li>
+      </ul>
+      
+       {titulo()}
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -18,7 +59,8 @@ export default function Home() {
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
               app/page.jsx
             </code>
-            .
+            
+            
           </li>
           <li className="tracking-[-.01em]">
             Save and see your changes instantly: then deploy to production
