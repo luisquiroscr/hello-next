@@ -1,19 +1,16 @@
 "use client";
-
 import React from "react";
-import Menu from "./Menu"; // Asegurate de tener este componente en ./components/Menu.jsx
+import Menu from "./Menu";
 
-export default function Navigation({ name }) {
+export default function Navigation() {
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-sm p-4 text-center space-y-4">
+    <nav className="bg-white dark:bg-gray-900 shadow-sm p-4 text-center space-y-4">
       <p className="text-lg font-medium text-gray-700 dark:text-gray-200">
-        Esta es la navegación {name}
+        Bienvenidos al Portafolio de Luis Fernando Quiros N
       </p>
-
-      {/* Menú de navegación por secciones */}
       <div className="flex justify-center">
         <Menu />
       </div>
-    </header>
+    </nav>
   );
 }
