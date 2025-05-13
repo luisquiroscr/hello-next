@@ -71,7 +71,7 @@ export default function Contact() {
           </h2>
           <p><strong>📧 Correo principal:</strong><br /> luis.quiros.navarro@mep.go.cr</p>
           <p><strong>📨 Correo alternativo:</strong><br /> lfernandoqn@gmail.com</p>
-          <p><strong>📱 Teléfono:</strong><br /> +506 8888-8888</p>
+          <p><strong>📱 Teléfono:</strong><br /> +506 8816-1688</p>
           <p><strong>🏠 Dirección:</strong><br /> San José de Upala, Alajuela, Costa Rica</p>
           <p>
             <strong>🔗 LinkedIn:</strong><br />
